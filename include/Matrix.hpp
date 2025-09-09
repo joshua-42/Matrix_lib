@@ -35,6 +35,17 @@
                 }
             }
 
+            Matrix<T> transpose() const {
+                 Matrix<T> result(cols, rows);
+
+                 for (size_t i = 0; i < rows; i++) {
+                    for (size_t j = 0; j < cols; j++) {
+                        result(j, i) = (*this)(i, j);
+                    }
+                 }
+                 return result;
+            }
+
             Matrix operator+(const Matrix& other) const {
                 Matrix<T>   tmp(rows, cols);
 
